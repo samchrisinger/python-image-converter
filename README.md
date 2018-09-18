@@ -9,7 +9,7 @@ Convert .nef and .raf to .jp2
 
 ```
 mkvirtualenv python-image-converter
-pip install -r requirements.txt`
+pip install -r requirements.txt
 ```
 
 # Usage
