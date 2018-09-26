@@ -7,7 +7,6 @@ from glob import glob
 
 
 def convert():
-  import ipdb; ipdb.set_trace()
   path = sys.argv[1].strip('\'').strip('"')
   targets = os.listdir(path)#(path + '*.nef') + glob(path + '*.raf') + glob(path + '*.NEF') + glob(path + '*.RAF')
   i = 1
@@ -30,8 +29,9 @@ def convert():
       base = os.path.splitext(target)[0]
       print('Saving converted verison of {}'.format(target))
       imageio.imsave(path + filename + '.jp2', rgb)
-    except:
+    except Exception as e:
       print('Could not convert {}'.format(target))
+      print('Reason: {}'.format(str(e)))
       failed.append(target)
       continue
   print("------FAILURES-----------")
